@@ -1,0 +1,167 @@
+[package]
+name = "hash_utils"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "A collection of hash functions"
+repository = "https://github.com/mkaraki/hash_utils.git"
+readme = "README.md"
+
+[features]
+default = [
+    "hash_md5",
+    "hash_crc_essential",
+    "hash_sha1",
+    "hash_sha2",
+    "hash_sha3",
+    "hash_blake2",
+]
+all = [
+    "hash_md2",
+    "hash_md4",
+    "hash_md5",
+    "hash_crc",
+    "hash_crc_essential",
+    "hash_unix_cksum",
+    "hash_fnv",
+    "hash_adler32",
+    "hash_bsd_checksum",
+    "hash_sysv_checksum",
+    "hash_fletcher",
+    "hash_lrc",
+    "hash_djb2",
+    "hash_sdbm",
+    "hash_lose_lose",
+    "hash_xxhash",
+    "hash_metrohash",
+    "hash_cityhash",
+    "hash_farmhash",
+    "hash_ascon_hash",
+    "hash_belt_hash",
+    "hash_blake2",
+    "hash_fsb",
+    "hash_gost94",
+    "hash_groestl",
+    "hash_jh",
+    "hash_ripemd",
+    "hash_sha1",
+    "hash_sha2",
+    "hash_sha3",
+    "hash_keccak",
+    "hash_shabal",
+    "hash_skein",
+    "hash_sm3",
+    "hash_streebog",
+    "hash_whirlpool",
+]
+hash_md2 = [ "dep_md2" ]
+hash_md4 = [ "dep_md4" ]
+hash_md5 = [ "dep_md5" ]
+hash_crc = [ "dep_crc" ]
+hash_fnv = [ "hash_fnv_64_minus", "hash_fnv_1a" ]
+hash_adler32 = [ "dep_pruefung" ]
+hash_bsd_checksum = [ "dep_pruefung" ]
+hash_sysv_checksum = [ "dep_pruefung" ]
+hash_fletcher = [ "hash_fletcher_16_plus" ]
+hash_lrc = []
+hash_djb2 = [ "dep_hashers" ]
+hash_sdbm = [ "dep_hashers" ]
+hash_lose_lose = [ "dep_hashers" ]
+hash_xxhash = [ "dep_twox-hash" ]
+hash_metrohash = [ "dep_metrohash" ]
+hash_cityhash = [ "dep_cityhasher" ]
+hash_farmhash = [ "hash_farmhash_64_minus" ]
+hash_ascon_hash = [ "dep_ascon-hash" ]
+hash_belt_hash = [ "dep_belt-hash" ]
+hash_blake2 = [ "dep:blake2" ]
+hash_fsb = [ "dep_fsb" ]
+hash_gost94 = [ "dep_gost94" ]
+hash_groestl = [ "dep_groestl" ]
+hash_jh = [ "dep_jh" ]
+hash_ripemd = [ "dep_ripemd" ]
+hash_sha1 = [ "dep_sha1" ]
+hash_sha2 = [ "dep_sha2" ]
+hash_sha3 = [ "dep_sha3" ]
+hash_keccak = [ "dep_sha3" ]
+hash_shabal = [ "dep_shabal" ]
+hash_skein = [ "dep_skein" ]
+hash_sm3 = [ "dep_sm3" ]
+hash_streebog = [ "dep_streebog" ]
+hash_whirlpool = [ "dep_whirlpool" ]
+
+# Duplicated crc crate feature (user-friendly alias for crc)
+hash_crc_essential = [ "dep_crc" ]
+hash_unix_cksum = [ "dep_crc" ]
+
+# Pseudo hash features
+hash_fletcher_16_plus = [ "dep_fletcher" ]
+hash_fnv_64_minus = [ "dep_pruefung" ]
+hash_fnv_1a = [ "dep_fnv_rs" ]
+hash_farmhash_64_minus = [ "dep_farmhash" ]
+
+# Library based features
+dep_md2 = [ "dep:md2" ]
+dep_md4 = [ "dep:md4" ]
+dep_md5 = [ "dep:md5" ]
+dep_crc = [ "dep:crc" ]
+dep_pruefung = [ "dep:pruefung" ]
+dep_fletcher = ["dep:fletcher"]
+dep_fnv_rs = ["dep:fnv_rs"]
+dep_hashers = ["dep:hashers"]
+dep_metrohash = ["dep:metrohash"]
+dep_twox-hash = ["dep:twox-hash"]
+dep_cityhasher = ["dep:cityhasher"]
+dep_farmhash = ["dep:farmhash"]
+dep_ascon-hash = ["dep:ascon-hash"]
+dep_belt-hash = ["dep:belt-hash"]
+dep_blake2 = ["dep:blake2"]
+dep_fsb = ["dep:fsb"]
+dep_gost94 = ["dep:gost94"]
+dep_groestl = ["dep:groestl"]
+dep_jh = ["dep:jh"]
+dep_ripemd = ["dep:ripemd"]
+dep_sha1 = ["dep:sha1"]
+dep_sha2 = ["dep:sha2"]
+dep_sha3 = ["dep:sha3"]
+dep_shabal = ["dep:shabal"]
+dep_skein = ["dep:skein"]
+dep_sm3 = ["dep:sm3"]
+dep_streebog = ["dep:streebog"]
+dep_whirlpool = ["dep:whirlpool"]
+
+
+[dependencies]
+cfg-if = "1.0.0"
+md4 = { version = "0.10", optional = true }
+md2 = { version = "0.10", optional = true }
+crc = { version = "3.2.1", optional = true }
+pruefung = { version = "0.2.1", optional = true, default-features = false }
+ascon-hash = { version = "0.2.0", optional = true }
+belt-hash = { version = "0.1.1", optional = true }
+blake2 = { version = "0.10.6", optional = true }
+fsb = { version = "0.1.3", optional = true }
+gost94 = { version = "0.10.4", optional = true }
+groestl = { version = "0.10.1", optional = true }
+jh = { version = "0.1.0", optional = true }
+md5 = { version = "0.7.0", optional = true }
+ripemd = { version = "0.1.3", optional = true }
+sha1 = { version = "0.10.6", optional = true }
+sha2 = { version = "0.10.8", optional = true }
+sha3 = { version = "0.10.8", optional = true }
+shabal = { version = "0.4.1", optional = true }
+skein = { version = "0.1.0", optional = true }
+sm3 = { version = "0.4.2", optional = true }
+streebog = { version = "0.10.2", optional = true }
+whirlpool = { version = "0.10.4", optional = true }
+fletcher = { version = "1.0.0", optional = true }
+fnv_rs = { version = "0.4.3", optional = true, features = ["bigint"] }
+hashers = { version = "1.0.1", optional = true }
+metrohash = { version = "1.0.7", optional = true }
+twox-hash = { version = "2.1.0", optional = true, features = ["xxhash32", "xxhash64", "xxhash3_64"] }
+cityhasher = { version = "0.1.0", optional = true }
+farmhash = { version = "1.1.5", optional = true }
+
+hashers_proc_macro = "0.1.0"
+
+[dev-dependencies]
+hex = "0.4.3"

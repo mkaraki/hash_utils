@@ -1,0 +1,153 @@
+# hashers
+
+Multiple hash function with one interface.
+
+## Supported hash functions
+
+Planned/Implemented hash functions:
+
+- [x] [CRC](https://en.wikipedia.org/wiki/Cyclic_redundancy_check)
+  - Algorithms in https://docs.rs/crc/3.2.1/crc/index.html#constants (Not tested)
+  - CRC-32 (B), CRC-32C (Tested)
+  - [`chsum(1)`](https://en.wikipedia.org/wiki/Cksum) (Test fail)
+- [x] MD2
+- [x] MD4
+- [x] [BSD checksum](https://en.wikipedia.org/wiki/BSD_checksum)
+- [x] [SysV checksum](https://en.wikipedia.org/wiki/SYSV_checksum)
+- [x] [Adler-32](https://en.wikipedia.org/wiki/Adler-32)
+- [ ] [Fletcher](https://en.wikipedia.org/wiki/Fletcher%27s_checksum)
+  - [ ] Fletcher-4
+  - [ ] Fletcher-8
+  - [x] Fletcher-16 (Tested)
+  - [x] Fletcher-32 (Test fail)
+  - [x] Fletcher-64 (Not tested)
+- [ ] [Fowler-Noll-Vo hash](https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function)
+  - [x] FNV-0 32bit (Not tested)
+  - [x] FNV-0 64bit (Not tested)
+  - [ ] FNV-0 128+ bits
+  - [x] FNV-1 32bit (Tested)
+  - [x] FNV-1 64bit (Tested)
+  - [ ] FNV-1 128+ bits
+  - [x] FNV-1a 32bit (Tested)
+  - [x] FNV-1a 64bit (Tested)
+  - [x] FNV-1a 128bit (Tested)
+  - [x] FNV-1a 256bit (Tested)
+  - [x] FNV-1a 512bit (Tested)
+  - [x] FNV-1a 1024bit (Tested)
+- [x] [Longitudinal redundancy check](https://en.wikipedia.org/wiki/Longitudinal_redundancy_check) (Tested)
+- [ ] [Luhn (mod10)](https://en.wikipedia.org/wiki/Luhn_algorithm)
+- [ ] [Verhoeff](https://en.wikipedia.org/wiki/Verhoeff_algorithm)
+- [ ] [Damm](https://en.wikipedia.org/wiki/Damm_algorithm)
+- [ ] [Pearson hash](https://en.wikipedia.org/wiki/Pearson_hashing)
+- [ ] [Paul Hsieh SuperFastHash](https://www.azillionmonkeys.com/qed/hash.html)
+- [ ] [Jenkins hash function](https://en.wikipedia.org/wiki/Jenkins_hash_function)
+  - [ ] One-at-a-Time
+  - [ ] Lookup2
+  - [ ] Lookup3
+  - [ ] SpookyHash
+- [ ] djb2
+  - [ ] 32bit
+  - [x] 64bit (Not tested)
+- [ ] sdbm
+  - [ ] 32bit
+  - [x] 64bit (Not tested)
+- [x] lose lose (Not tested)
+- [ ] MetroHash
+  - [x] MetroHash 64bit (Not tested)
+  - [x] MetroHash 128bit (Not tested)
+  - [x] MetroHash 128bit CRC (Not tested)
+- [x] XXHash
+  - [x] XXHash 32bit (Not tested)
+  - [x] XXHash 64bit (Not tested)
+- [x] XXH3
+  - [x] XXH3 64bit (Not tested)
+  - [x] XXH3 128bit (Not tested)
+- [ ] SipHash
+- [ ] [PJW hash](https://en.wikipedia.org/wiki/PJW_hash_function)
+- [ ] [MurmurHash](https://en.wikipedia.org/wiki/MurmurHash)
+- [ ] `ztanml/fast-hash`
+- [ ] [CityHash](https://github.com/google/cityhash)
+  - [x] CityHash 32bit (Not tested)
+  - [x] CityHash 64bit (Not tested)
+  - [ ] CityHash 128bit
+  - [ ] CityHash CRC 128
+  - [ ] CityHash CRC 256
+- [ ] [FarmHash](https://github.com/google/farmhash)
+  - [x] FarmHash fingerprint 32bit (Not tested)
+  - [x] FarmHash fingerprint 64bit (Not tested)
+  - [ ] FarmHash fingerprint 128bit
+  - [x] FarmHash 32bit (Not tested)
+  - [x] FarmHash 64bit (Not tested)
+  - [ ] FarmHash 128bit
+- [x] [Ascon](https://en.wikipedia.org/wiki/Ascon_(cipher))
+  - [x] Ascon-Hash (Not tested)
+  - [x] Ascon-HashA (Not tested)
+  - [x] Ascon-Xof 32byte (Not tested)
+  - [x] Ascon-XofA 32byte (Not tested)
+- [x] [BLAKE2](https://en.wikipedia.org/wiki/BLAKE_(hash_function))
+  - [x] BLAKE2b 512bit (Not tested)
+  - [x] BLAKE2s 256bit (Not tested)
+- [x] [FSB](https://en.wikipedia.org/wiki/Fast_syndrome-based_hash)
+  - [x] FSB-160 (Not tested)
+  - [x] FSB-224 (Not tested)
+  - [x] FSB-256 (Not tested)
+  - [x] FSB-384 (Not tested)
+  - [x] FSB-512 (Not tested)
+- [ ] [GOST](https://en.wikipedia.org/wiki/GOST_(hash_function))
+  - [x] GOST R 34.11-94 (Not tested)
+- [x] [Grøstl](https://en.wikipedia.org/wiki/Gr%C3%B8stl)
+  - [x] Grøstl-224 (Not tested)
+  - [x] Grøstl-256 (Not tested)
+  - [x] Grøstl-384 (Not tested)
+  - [x] Grøstl-512 (Not tested)
+- [x] [JH](https://en.wikipedia.org/wiki/JH_(hash_function))
+  - [x] JH-224 (Not tested)
+  - [x] JH-256 (Not tested)
+  - [x] JH-384 (Not tested)
+  - [x] JH-512 (Not tested)
+- [ ] KangarooTwelve
+- [x] [RIPEMD](https://en.wikipedia.org/wiki/RIPEMD)
+  - [x] RIPEMD-128 (Not tested)
+  - [x] RIPEMD-160 (Not tested)
+  - [x] RIPEMD-256 (Not tested)
+  - [x] RIPEMD-320 (Not tested)
+- [x] [SHA-1](https://en.wikipedia.org/wiki/SHA-1) (Not tested)
+- [x] [SHA-2](https://en.wikipedia.org/wiki/SHA-2)
+  - [x] SHA-224 (Not tested)
+  - [x] SHA-256 (Not tested)
+  - [x] SHA-384 (Not tested)
+  - [x] SHA-512 (Not tested)
+  - [x] SHA-512/224 (Not tested)
+  - [x] SHA-512/256 (Not tested)
+- [ ] [SHA-3](https://en.wikipedia.org/wiki/SHA-3)
+  - [x] SHA3-224 (Not tested)
+  - [x] SHA3-256 (Not tested)
+  - [x] SHA3-384 (Not tested)
+  - [x] SHA3-512 (Not tested)
+  - [ ] SHAKE128
+  - [ ] SHAKE256
+- [x] Keccak
+  - [x] Keccak-224 (Not tested)
+  - [x] Keccak-256 (Not tested)
+  - [x] Keccak-384 (Not tested)
+  - [x] Keccak-512 (Not tested)
+- [ ] TurboSHAKE
+- [ ] Shabal
+  - [x] Shabal-192 (Not tested)
+  - [x] Shabal-224 (Not tested)
+  - [x] Shabal-256 (Not tested)
+  - [x] Shabal-384 (Not tested)
+  - [x] Shabal-512 (Not tested)
+- [ ] [Skein](https://en.wikipedia.org/wiki/Skein_(hash_function))
+  - [x] Skein-256 (Not tested)
+  - [x] Skein-512 (Not tested)
+  - [x] Skein-1024 (Not tested)
+- [x] [ShangMi3](https://en.wikipedia.org/wiki/SM3_(hash_function)) (Not tested)
+- [x] [Streebog](https://en.wikipedia.org/wiki/Streebog)
+  - [x] Streebog-256 (Not tested)
+  - [x] Streebog-512 (Not tested)
+- [ ] [Tiger](http://www.cs.technion.ac.il/~biham/Reports/Tiger/tiger/tiger.html)
+- [ ] [Whirlpool](https://en.wikipedia.org/wiki/Whirlpool_(hash_function))
+  - [ ] Whirlpool-0
+  - [ ] Whirlpool-T
+  - [x] Whirlpool (Not tested)
