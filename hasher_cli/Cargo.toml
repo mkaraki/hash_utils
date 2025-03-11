@@ -1,0 +1,13 @@
+[package]
+name = "hasher_cli"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+all = ["hash_utils/all"]
+
+[dependencies]
+argparse = "0.2.2"
+
+[dependencies.hash_utils]
+path = ".."
